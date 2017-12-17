@@ -4,6 +4,7 @@
 
 const mongoose = require('mongoose');
 const productSchema = mongoose.Schema({
+    date: String,
     coord: {
         lon: {
             type: Number
@@ -12,7 +13,7 @@ const productSchema = mongoose.Schema({
             type: Number
         },
     },
-    weather: [{
+    weather: {
         id: {
             type: Number
         },
@@ -25,7 +26,7 @@ const productSchema = mongoose.Schema({
         icon: {
             type: String
         },
-    }],
+    },
     base: {
         type: String
     },

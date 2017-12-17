@@ -10,11 +10,9 @@ module.exports = function(app, data) {
 
     router
         .get('/weather', controllers.getWeatherInfo)
-        .get('/weather/:city', controllers.getWeatherInfoFromOpenWeather)
-        .post('/weather', controllers.postWeatherInfo)
+        .get('/:city', controllers.getWeatherInfoByCity)
         .patch('/weather/:weatherId', controllers.patchWeatherInfo)
-        .delete('/weather/:weatherId', controllers.deleteWeatherInfo);
-
-
+        .delete('/weather/:city', controllers.deleteWeatherInfo)
+        .delete('/weather/deleteall', controllers.deleteAllWeatherInfo);
     app.use(router);
 };
