@@ -2,7 +2,7 @@
 'use strict';
 
 const mongoose = require('mongoose');
-var weatherData = require('../config/openWeatherData.js');
+var weatherData = require('../data/openWeatherData');
 
 module.exports = function(config) {
     mongoose.Promise = global.Promise;
@@ -15,6 +15,8 @@ module.exports = function(config) {
     db.once('open', () => {
         // Feed the base with initial/latest weather conditions
         weatherData();
+        //The API for the weather forecast is updated every 3h
+        setInterval(function() { weatherData(); }, 3600000);
         console.log('We are now connected to connected to: ' + config.connectionString)
     });
 };

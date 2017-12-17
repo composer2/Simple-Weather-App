@@ -9,10 +9,10 @@ module.exports = function(app, data) {
         controllers = require('../controllers')(data);
 
     router
-        .get('/weather', controllers.getWeatherInfo)
         .get('/:city', controllers.getWeatherInfoByCity)
+        .get('/documents/all', controllers.getAllInfo)
         .patch('/weather/:weatherId', controllers.patchWeatherInfo)
         .delete('/weather/:city', controllers.deleteWeatherInfo)
-        .delete('/weather/deleteall', controllers.deleteAllWeatherInfo);
+        .delete('/weather/delete/all', controllers.deleteAllWeatherInfo);
     app.use(router);
 };

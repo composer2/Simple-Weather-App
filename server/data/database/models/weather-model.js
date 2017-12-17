@@ -3,7 +3,7 @@
 'use strict';
 
 const mongoose = require('mongoose');
-const productSchema = mongoose.Schema({
+const weatherSchema = mongoose.Schema({
     date: String,
     coord: {
         lon: {
@@ -93,5 +93,7 @@ const productSchema = mongoose.Schema({
         type: Number
     }
 
-});
-module.exports = mongoose.model('Weather', productSchema);
+}, { timestamps: true });
+//after 3h and 10m the collection will expire and will be auto deleted from the base
+weatherSchema.index({ createdAt: 1 }, { expireAfterSeconds: 11400 });
+module.exports = mongoose.model('Weather', weatherSchema);

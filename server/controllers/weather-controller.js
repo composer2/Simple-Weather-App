@@ -7,22 +7,6 @@ const Weather = require("../data/database/models/weather-model");
 
 module.exports = function(data) {
     return {
-        getWeatherInfo(req, res, next) {
-            Weather
-                .find()
-                .sort({ date: -1 })
-                .exec()
-                .then(result => {
-                    console.log("This is my result", result);
-                    res.render('weather-page', { result });
-                })
-                .catch(err => {
-                    console.log(err);
-                    res.status(500).json({
-                        error: err
-                    });
-                });
-        },
         getWeatherInfoByCity(req, res, next) {
             const city = req.params.city;
             console.log(city)
@@ -46,6 +30,22 @@ module.exports = function(data) {
 
                     }
                     res.render('weather-page', weatherDetails);
+                })
+                .catch(err => {
+                    console.log(err);
+                    res.status(500).json({
+                        error: err
+                    });
+                });
+        },
+
+        getAllInfo(req, res, next) {
+            Weather
+                .find({})
+                .exec()
+                .then(result => {
+                    //res.render('getalldata-page', { message: "All documents", result: result });
+                    res.status(200).json(result);
                 })
                 .catch(err => {
                     console.log(err);
