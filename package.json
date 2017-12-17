@@ -18,13 +18,20 @@
     },
     "homepage": "https://github.com/composer2/Simple-Weather-App#readme",
     "dependencies": {
+        "bcryptjs": "*",
+        "connect-flash": "*",
         "body-parser": "1.15.2",
         "cookie-parser": "^1.4.3",
         "express": "^4.14.0",
         "express-handlebars": "^3.0.0",
+        "express-messages": "*",
         "express-session": "^1.14.2",
+        "express-validator": "*",
         "mongoose": "^4.13.7",
-        "request": "^2.83.0"
+        "request": "^2.83.0",
+        "passport": "*",
+        "passport-http": "*",
+        "passport-local": "*"
     },
     "devDependencies": {
         "chai": "^3.5.0",
