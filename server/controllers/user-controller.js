@@ -84,7 +84,7 @@ module.exports = (data) => {
 
                 req.flash('success_msg', 'You are registered and can now login');
 
-                res.redirect('/users/login');
+                res.redirect('/login');
             }
         },
         getLogout(req, res) {
@@ -92,7 +92,7 @@ module.exports = (data) => {
 
             req.flash('success_msg', 'You are logged out');
 
-            res.redirect('/users/login');
+            res.redirect('/');
         }
     };
 };

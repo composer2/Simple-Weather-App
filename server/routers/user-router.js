@@ -11,11 +11,11 @@ module.exports = function(app, data) {
         .get('/register', controllers.getRegisterPage)
         .get('/login', controllers.getLoginPage)
         .get('/register', controllers.getRegisterInfoPage)
-        .post('/login', passport.authenticate('local', { successRedirect: '/', failureRedirect: '/users/login', failureFlash: true }),
+        .post('/login', passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login', failureFlash: true }),
             function(req, res) {
                 res.redirect('/');
             })
-        .post('logout', controllers.getLogout);
+        .get('/logout', controllers.getLogout);
 
     app.use(router);
 };
