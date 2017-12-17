@@ -40,27 +40,15 @@ passport.deserializeUser(function(id, done) {
 
 module.exports = (data) => {
     return {
-        getLoginPage(req, res) {
-            res.render('users/login-page', { user: req.user });
-        },
-
-        getRegister(req, res) {
-            res.render('register');
-        },
-
-        getUserProfilePage(req, res) {
-            res.render('login');
-        },
-
         getRegisterPage(req, res) {
-            res.render('users/register-page');
+            res.render('register-page');
         },
 
-        getFacebookCallbackPage(req, res) {
-            res.render('users/profile-page', { user: req.user });
+        getLoginPage(req, res) {
+            res.render('login-page');
         },
 
-        getUpdateInfoPage(req, res) {
+        getRegisterInfoPage(req, res) {
             var name = req.body.name;
             var email = req.body.email;
             var username = req.body.username;
@@ -99,37 +87,7 @@ module.exports = (data) => {
                 res.redirect('/users/login');
             }
         },
-
-        updateUserInfo(req, res) {
-            if (!req.isAuthenticated()) {
-                res.render('auth-not-authorised-page', { user: req.user });
-                return;
-            }
-            let newData = {};
-
-            Object.keys(req.body)
-                .forEach(key => {
-                    if (req.body[key] && req.body[key].trim() !== '') {
-                        if (key !== 'avatar') {
-                            newData[key] = req.body[key];
-                        } else {
-                            newData.profilePicture = {
-                                src: req.body[key]
-                            };
-                        }
-                    }
-                });
-
-            data.updateUserInfo(req.user, newData)
-                .then(() => {
-                    res.redirect('/profile/' + req.user.username, { user: req.user });
-                })
-                .catch((err) => {
-                    res.status(400).send(err);
-                    res.redirect('/update-info');
-                });
-        },
-        createAdmin(req, res) {
+        getLogout(req, res) {
             req.logout();
 
             req.flash('success_msg', 'You are logged out');

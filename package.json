@@ -34,10 +34,6 @@
         "passport-local": "*"
     },
     "devDependencies": {
-        "chai": "^3.5.0",
-        "chai-http": "^3.0.0",
-        "mocha": "^3.2.0",
-        "nodemon": "^1.11.0",
-        "sinon": "^1.17.6"
+        "tap": "^11.0.0"
     }
 }

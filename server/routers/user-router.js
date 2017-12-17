@@ -8,14 +8,14 @@ module.exports = function(app, data) {
         controllers = require('../controllers')(data);
 
     router
-        .get('/register', controllers.getRegister)
-        .get('/login', controllers.getUserProfilePage)
-        .get('/register', controllers.getUpdateInfoPage)
+        .get('/register', controllers.getRegisterPage)
+        .get('/login', controllers.getLoginPage)
+        .get('/register', controllers.getRegisterInfoPage)
         .post('/login', passport.authenticate('local', { successRedirect: '/', failureRedirect: '/users/login', failureFlash: true }),
             function(req, res) {
                 res.redirect('/');
             })
-        .post('logout', controllers.createAdmin);
+        .post('logout', controllers.getLogout);
 
     app.use(router);
 };
