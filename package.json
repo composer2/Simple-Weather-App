@@ -1,0 +1,36 @@
+{
+    "name": "simple-weather-app",
+    "version": "1.0.0",
+    "description": "The app gathers weather forecast data from publicly available weather API, stores it in a local database, and consume it via multiple clients - web client and server client.",
+    "main": "app.js",
+    "scripts": {
+        "start": "node app.js",
+        "test": "./node_modules/.bin/mocha tests tests/**/*.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/composer2/Simple-Weather-App.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/composer2/Simple-Weather-App/issues"
+    },
+    "homepage": "https://github.com/composer2/Simple-Weather-App#readme",
+    "dependencies": {
+        "body-parser": "1.15.2",
+        "cookie-parser": "^1.4.3",
+        "express": "^4.14.0",
+        "express-handlebars": "^3.0.0",
+        "express-session": "^1.14.2",
+        "mongoose": "^4.13.5",
+        "request": "^2.83.0"
+    },
+    "devDependencies": {
+        "chai": "^3.5.0",
+        "chai-http": "^3.0.0",
+        "mocha": "^3.2.0",
+        "nodemon": "^1.11.0",
+        "sinon": "^1.17.6"
+    }
+}

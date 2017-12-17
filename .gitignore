@@ -1,0 +1,10 @@
+.idea
+*.iml
+dist/
+bin/
+node_modules
+*.zip
+temp-zip/
+.vscode
+*.log
+package-lock.json
