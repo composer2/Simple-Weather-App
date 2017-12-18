@@ -1,8 +1,8 @@
 # How to start it
-git clone https://github.com/composer2/Simple-Weather-App.git
-npm install;
-npm start; (note the server is running on PORT 3000 if it's busy it won't start)
-npm test (starts the unit tests)
+* git clone https://github.com/composer2/Simple-Weather-App.git
+* npm install;
+* npm start; (note the server is running on PORT 3000 if it's busy it won't start)
+* npm test (starts the unit tests)
 
 # Simple-Weather-App
 The app gathers weather forecast data from publicly available weather API, stores it in a local database, and consume it via multiple clients - web client and server client.
