@@ -29,6 +29,7 @@ var getWeatherInfoFromOpenWeather = function() {
                 let date = new Date();
                 const weather = new Weather({
                     date: date,
+                    createdAt: date,
                     coord: data[i].coord,
                     weather: data[i].weather,
                     base: data[i].base,

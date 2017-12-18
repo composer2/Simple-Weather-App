@@ -10,8 +10,8 @@ module.exports = function(app, data) {
     router
         .get('/register', controllers.getRegisterPage)
         .get('/login', controllers.getLoginPage)
-        .post('/register', controllers.getRegisterInfoPage)
-        .post('/login', passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login', failureFlash: true }),
+        .post('/user/register', controllers.getRegisterInfoPage)
+        .post('/user/login', passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login', failureFlash: true }),
             function(req, res) {
                 res.redirect('/');
             })
